@@ -1,0 +1,101 @@
+/* Navbar container */
+.w-full {
+  top: 0;
+  background-color: #f3f4f6; /* Grey background for navbar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for separation */
+  z-index: 10; /* Keep navbar on top of other content */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Logo styles */
+.logo {
+  height: 50px; /* Fixed logo height */
+  width: auto;
+  margin-right: 20px;
+}
+
+/* Health Tracker Title (only visible on large screens) */
+.health-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #232323;
+  text-align: center;
+  margin-right: 30px; /* Space between title and menu */
+}
+
+/* Navbar Menu */
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  width: auto;
+  position: relative;
+}
+
+/* Menu item styling */
+.menu-item {
+  position: relative;
+  cursor: pointer;
+  margin: 0 20px;
+}
+
+.menu-item h6 {
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.25rem; /* Increased font size */
+  color: #232323;
+  font-weight: bold; /* Bold text */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.menu-item:hover h6 {
+  color: #002b75;
+  transform: translateY(-3px); /* Small lift on hover */
+}
+
+/* Default active menu item - Form will not be pink until clicked */
+.current-menu-item h6 {
+  color: #cc3366; /* Dark pink color */
+}
+
+/* Underline indicator (wee) */
+.wee {
+  position: absolute;
+  height: 2px;
+  background-color: #cc3366; /* Dark pink color for the dash */
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+  visibility: hidden; /* Initially hidden */
+}
+
+/* Hover effect for menu items */
+.menu-item:hover .wee {
+  width: 100%; /* Full width on hover */
+  visibility: visible; /* Show the dash when hovered */
+}
+
+/* Desktop View (lg screens) */
+@media (min-width: 1025px) {
+  .menu {
+    flex-direction: row; /* Keep items horizontal */
+  }
+
+  .health-title {
+    display: block;
+    font-size: 2.25rem; /* Larger title */
+  }
+}
+
+/* Tablet and Mobile View (md screens) */
+@media (max-width: 1024px) {
+  .menu-item h6 {
+    font-size: 1rem; /* Smaller text for mobile */
+  }
+
+  .logo {
+    height: 40px; /* Smaller logo size on mobile */
+  }
+}

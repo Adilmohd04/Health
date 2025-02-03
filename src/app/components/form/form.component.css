@@ -1,0 +1,122 @@
+/* Wrapper to center everything */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  
+}
+
+/* Container box with rounded edges */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 1600px;
+  padding: 40px 100px;
+  background-color: #CB9DF0;
+  border-radius: 25px;
+  position: relative;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50px);
+}
+
+/* Left form section */
+.form-container {
+  flex: 1;
+  padding: 50px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Right image section */
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Workout image styling */
+.workout-image {
+  height: 600px;
+  position: absolute;
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* Input focus color */
+input:focus, select:focus {
+  border-color: #e91e63;
+  outline: none;
+  box-shadow: 0 0 5px rgba(233, 30, 99, 0.5);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  /* Hide right image on mobile */
+  .image-container {
+    display: none;
+  }
+
+  /* Form container takes full width on mobile */
+  .form-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  /* Make wrapper take full height */
+  .wrapper {
+    min-height: 100vh;
+  }
+
+  /* Container styling adjustments for mobile */
+  .container {
+    width: 100%;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  /* Adjust form layout */
+  .form-container {
+    padding: 20px;
+  }
+
+  .workout-image {
+    height: 250px;
+  }
+}
+
+.animate-left {
+  animation: slideInLeft 0.5s ease-in-out;
+}
+
+.animate-right {
+  animation: slideInRight 0.5s ease-in-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

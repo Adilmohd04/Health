@@ -1,0 +1,24 @@
+.pagination-button {
+    background-color: #f3f4f6;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .pagination-button:hover {
+    background-color: #ddd;
+  }
+  
+  .pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .pagination-button.active {
+    background-color: bg-pink-600;
+    color: white;
+  }
+  
