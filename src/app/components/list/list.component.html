@@ -1,7 +1,8 @@
-<div class="flex justify-center mb-10"> <!-- Added mb-10 -->
+<div class="flex justify-center mb-10">
   <div class="w-full max-w-7xl">
-    <div class="flex flex-col md:flex-row mb-6 space-y-4 md:space-y-0">
-      <div class="relative w-full md:w-1/2 mr-[5cm]">
+    <!-- Search and Filter Section -->
+    <div class="flex flex-col md:flex-row mb-6 gap-6">
+      <div class="relative w-full md:w-1/2">
         <label class="absolute text-gray-500 px-2 ml-3 mt-2" for="searchName">Search by Name</label>
         <input type="text" id="searchName" 
                [(ngModel)]="searchName" 
@@ -24,6 +25,7 @@
       </div>
     </div>
 
+    <!-- Table -->
     <table *ngIf="!loading && paginatedUserData.length" class="w-full mb-4 text-sm md:text-base bg-white rounded-lg border border-gray-300 shadow-lg transition-all">
       <thead class="bg-white text-black">
         <tr class="h-12 border-b border-gray-300">
@@ -51,38 +53,44 @@
       </tbody>
     </table>
 
+    <!-- No Users Message -->
     <div *ngIf="!loading && paginatedUserData.length === 0" class="text-center py-4 text-gray-600">
       No users available. Please add users to see them in the list.
     </div>
 
+    <!-- Loading Indicator -->
     <div *ngIf="loading" class="flex justify-center items-center py-4">
       <span class="text-gray-600">Loading...</span>
     </div>
 
-    <div class="flex flex-col md:flex-row justify-center items-center mt-8 space-y-4 md:space-y-0 md:space-x-4">
+    <!-- Pagination Controls -->
+    <div class="flex flex-col md:flex-row justify-center items-center mt-8 gap-6">
       <button (click)="goToPage(currentPage - 1)" 
               [disabled]="currentPage === 1 || totalPages === 0"
-              class="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 focus:outline-none focus:bg-gray-500 disabled:opacity-50 transition-all"><< Previous</button>
+              class="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 focus:outline-none focus:bg-gray-500 disabled:opacity-50 transition-all">
+        << Previous
+      </button>
 
-      <!-- Numbered pagination buttons -->
-      <div class="flex space-x-2">
+      <!-- Numbered Pagination -->
+      <div class="flex gap-3">
         <button *ngFor="let page of getPaginationRange()" 
                 (click)="goToPage(page)" 
                 [class.bg-blue-500]="currentPage === page" 
                 [class.text-white]="currentPage === page" 
                 [class.bg-gray-300]="currentPage !== page"
-                [class.text-white]="currentPage !== page"
                 class="p-2 rounded bg-pink-500 transition-all">
           {{ page }}
         </button>
       </div>
-      
 
       <button (click)="goToPage(currentPage + 1)" 
               [disabled]="currentPage === totalPages || totalPages === 0"
-              class="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 focus:outline-none focus:bg-gray-500 disabled:opacity-50 transition-all">Next >></button>
+              class="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 focus:outline-none focus:bg-gray-500 disabled:opacity-50 transition-all">
+        Next >>
+      </button>
 
-      <div class="flex items-center space-x-2">
+      <!-- Items Per Page -->
+      <div class="flex items-center gap-3">
         <label for="itemsPerPage" class="block text-gray-700 font-bold mb-2">Items per page</label>
         <input type="number" 
                [(ngModel)]="itemsPerPage" 
