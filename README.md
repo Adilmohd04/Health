@@ -30,8 +30,7 @@ Ensure you have the following installed on your local machine:
 1. Clone the repository:
 
    ```bash
-  git clone https://github.com/Adilmohd04/Health.git
-
+   git clone https://github.com/Adilmohd04/Health.git
    ```
 
 2. Navigate to the project directory:
