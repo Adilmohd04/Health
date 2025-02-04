@@ -7,7 +7,7 @@ import { EventEmitter } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 
-describe('UserListComponent', () => {
+describe('ListComponent', () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
   let mockWorkoutService: WorkoutService;
@@ -18,9 +18,8 @@ describe('UserListComponent', () => {
     } as unknown as WorkoutService; 
 
     await TestBed.configureTestingModule({
-      imports: [CommonModule, FormsModule],
-      providers: [{ provide: WorkoutService, useValue: mockWorkoutService }],
-      declarations: [ListComponent]  
+      imports: [CommonModule, FormsModule,ListComponent],
+      providers: [{ provide: WorkoutService, useValue: mockWorkoutService }]  
     }).compileComponents();
 
     fixture = TestBed.createComponent(ListComponent);

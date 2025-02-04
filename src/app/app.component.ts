@@ -22,7 +22,7 @@ import { WorkoutService, User } from './services/workout.service';
     FormComponent, 
     ListComponent, 
     ChartComponent, 
-    FontAwesomeModule // Add FontAwesomeModule here
+    FontAwesomeModule 
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],

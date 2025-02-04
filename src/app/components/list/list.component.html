@@ -1,91 +1,96 @@
-<div class="flex flex-col md:flex-row mb-6 space-y-4 md:space-y-0">
-  <div class="relative w-full md:w-1/2 mr-[5cm]">
-    <label class="absolute text-gray-500 px-2 ml-3 mt-2" for="searchName">Search by Name</label>
-    <input type="text" id="searchName" 
-           [(ngModel)]="searchName" 
-           (input)="onSearch()" 
-           class="w-full p-4 pl-6 pt-8 border-b-4 border-gray-500 rounded-t-md bg-gray-200 focus:outline-none focus:border-pink-600 transition-all">
-  </div>
+<div class="flex justify-center mb-10"> <!-- Added mb-10 -->
+  <div class="w-full max-w-7xl">
+    <div class="flex flex-col md:flex-row mb-6 space-y-4 md:space-y-0">
+      <div class="relative w-full md:w-1/2 mr-[5cm]">
+        <label class="absolute text-gray-500 px-2 ml-3 mt-2" for="searchName">Search by Name</label>
+        <input type="text" id="searchName" 
+               [(ngModel)]="searchName" 
+               (input)="onSearch()" 
+               class="w-full p-4 pl-6 pt-8 border-b-4 border-gray-500 rounded-t-md bg-gray-200 focus:outline-none focus:border-pink-600 transition-all">
+      </div>
 
-  <div class="relative w-full md:w-1/2">
-    <label class="absolute text-gray-500 px-2 ml-3 mt-2" for="filterType">Filter by Workout Type</label>
-    <select id="filterType"
-            [(ngModel)]="filterType" 
-            (change)="onFilterChange()" 
-            class="w-full p-4 pl-6 pt-8 border-b-4 border-gray-500 rounded-t-md bg-gray-200 focus:outline-none focus:border-pink-600 transition-all">
-      <option value="">ALL</option>
-      <option value="Running">Running</option>
-      <option value="Cycling">Cycling</option>
-      <option value="Swimming">Swimming</option>
-      <option value="Yoga">Yoga</option>
-    </select>
-  </div>
-</div>
+      <div class="relative w-full md:w-1/2">
+        <label class="absolute text-gray-500 px-2 ml-3 mt-2" for="filterType">Filter by Workout Type</label>
+        <select id="filterType"
+                [(ngModel)]="filterType" 
+                (change)="onFilterChange()" 
+                class="w-full p-4 pl-6 pt-8 border-b-4 border-gray-500 rounded-t-md bg-gray-200 focus:outline-none focus:border-pink-600 transition-all">
+          <option value="">ALL</option>
+          <option value="Running">Running</option>
+          <option value="Cycling">Cycling</option>
+          <option value="Swimming">Swimming</option>
+          <option value="Yoga">Yoga</option>
+        </select>
+      </div>
+    </div>
 
-<table *ngIf="!loading && paginatedUserData.length" class="w-full mb-4 text-sm md:text-base bg-white rounded-lg border border-gray-300 shadow-lg transition-all">
-  <thead class="bg-white text-black">
-    <tr class="h-12 border-b border-gray-300">
-      <th class="text-left py-2 px-4">Name</th>
-      <th class="text-left py-2 px-4">Workouts</th>
-      <th class="text-left py-2 px-4">Number of Workouts</th>
-      <th class="text-left py-2 px-4">Total Workout Minutes</th>
-      <th class="text-left py-2 px-4">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of paginatedUserData" 
-        (click)="onSelectUser(user)" 
-        class="cursor-pointer hover:bg-gray-200 border-b border-gray-300 transition-all">
-      <td class="py-2 px-4">{{ user.name }}</td>
-      <td class="py-2 px-4">{{ getUserWorkouts(user) }}</td>
-      <td class="py-2 px-4">{{ getNumberOfWorkouts(user) }}</td>
-      <td class="py-2 px-4">{{ getTotalWorkoutMinutes(user) }}</td>
-      <td class="py-2 px-4">
-        <button (click)="onDeleteUser(user)" class="text-red-700 hover:text-red-900">
-          <fa-icon [icon]="'trash-alt'"></fa-icon>
+    <table *ngIf="!loading && paginatedUserData.length" class="w-full mb-4 text-sm md:text-base bg-white rounded-lg border border-gray-300 shadow-lg transition-all">
+      <thead class="bg-white text-black">
+        <tr class="h-12 border-b border-gray-300">
+          <th class="text-left py-2 px-4">Name</th>
+          <th class="text-left py-2 px-4">Workouts</th>
+          <th class="text-left py-2 px-4">Number of Workouts</th>
+          <th class="text-left py-2 px-4">Total Workout Minutes</th>
+          <th class="text-left py-2 px-4">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of paginatedUserData" 
+            (click)="onSelectUser(user)" 
+            class="cursor-pointer hover:bg-gray-200 border-b border-gray-300 transition-all">
+          <td class="py-2 px-4">{{ user.name }}</td>
+          <td class="py-2 px-4">{{ getUserWorkouts(user) }}</td>
+          <td class="py-2 px-4">{{ getNumberOfWorkouts(user) }}</td>
+          <td class="py-2 px-4">{{ getTotalWorkoutMinutes(user) }}</td>
+          <td class="py-2 px-4">
+            <button (click)="onDeleteUser(user)" class="text-red-700 hover:text-red-900">
+              <fa-icon [icon]="'trash-alt'"></fa-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="!loading && paginatedUserData.length === 0" class="text-center py-4 text-gray-600">
+      No users available. Please add users to see them in the list.
+    </div>
+
+    <div *ngIf="loading" class="flex justify-center items-center py-4">
+      <span class="text-gray-600">Loading...</span>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-center items-center mt-8 space-y-4 md:space-y-0 md:space-x-4">
+      <button (click)="goToPage(currentPage - 1)" 
+              [disabled]="currentPage === 1 || totalPages === 0"
+              class="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 focus:outline-none focus:bg-gray-500 disabled:opacity-50 transition-all"><< Previous</button>
+
+      <!-- Numbered pagination buttons -->
+      <div class="flex space-x-2">
+        <button *ngFor="let page of getPaginationRange()" 
+                (click)="goToPage(page)" 
+                [class.bg-blue-500]="currentPage === page" 
+                [class.text-white]="currentPage === page" 
+                [class.bg-gray-300]="currentPage !== page"
+                [class.text-white]="currentPage !== page"
+                class="p-2 rounded bg-pink-500 transition-all">
+          {{ page }}
         </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      </div>
+      
 
-<div *ngIf="!loading && paginatedUserData.length === 0" class="text-center py-4 text-gray-600">
-  No users available. Please add users to see them in the list.
-</div>
+      <button (click)="goToPage(currentPage + 1)" 
+              [disabled]="currentPage === totalPages || totalPages === 0"
+              class="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 focus:outline-none focus:bg-gray-500 disabled:opacity-50 transition-all">Next >></button>
 
-<div *ngIf="loading" class="flex justify-center items-center py-4">
-  <span class="text-gray-600">Loading...</span>
-</div>
-
-<div class="flex flex-col md:flex-row justify-center items-center mt-8 space-y-4 md:space-y-0 md:space-x-4">
-  <button (click)="goToPage(currentPage - 1)" 
-          [disabled]="currentPage === 1 || totalPages === 0"
-          class="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 focus:outline-none focus:bg-gray-500 disabled:opacity-50 transition-all"><< Previous</button>
-
-  <!-- Numbered pagination buttons -->
-  <div class="flex space-x-2">
-    <button *ngFor="let page of [].constructor(totalPages); let i = index" 
-            (click)="goToPage(i + 1)" 
-            [class.bg-blue-500]="currentPage === (i + 1)" 
-            [class.text-white]="currentPage === (i + 1)" 
-            [class.bg-gray-300]="currentPage !== (i + 1)"
-            [class.text-black]="currentPage !== (i + 1)"
-            class="p-2 rounded hover:bg-pink-600 transition-all">
-      {{ i + 1 }}
-    </button>
-  </div>
-
-  <button (click)="goToPage(currentPage + 1)" 
-          [disabled]="currentPage === totalPages || totalPages === 0"
-          class="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 focus:outline-none focus:bg-gray-500 disabled:opacity-50 transition-all">Next >></button>
-
-  <div class="flex items-center space-x-2">
-    <label for="itemsPerPage" class="block text-gray-700 font-bold mb-2">Items per page</label>
-    <input type="number" 
-           [(ngModel)]="itemsPerPage" 
-           (change)="onItemsPerPageChange($event)" 
-           id="itemsPerPage"
-           class="w-20 p-2 border border-gray-400 rounded focus:outline-none focus:border-pink-600" 
-           min="1">
+      <div class="flex items-center space-x-2">
+        <label for="itemsPerPage" class="block text-gray-700 font-bold mb-2">Items per page</label>
+        <input type="number" 
+               [(ngModel)]="itemsPerPage" 
+               (change)="onItemsPerPageChange($event)" 
+               id="itemsPerPage"
+               class="w-20 p-2 border border-gray-400 rounded focus:outline-none focus:border-pink-600" 
+               min="1">
+      </div>
+    </div>
   </div>
 </div>

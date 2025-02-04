@@ -96,13 +96,16 @@ export class ListComponent implements AfterViewInit {
 
   getPaginationRange(): number[] {
     const pageRange = [];
-    let start = Math.max(1, this.currentPage - 2);
-    let end = Math.min(this.totalPages, this.currentPage + 2);
+    let start = this.currentPage;
+    let end = Math.min(this.totalPages, this.currentPage + 1);
+  
     for (let i = start; i <= end; i++) {
       pageRange.push(i);
     }
+    
     return pageRange;
   }
+  
 
   onPreviousPage() {
     if (this.currentPage > 1) {
