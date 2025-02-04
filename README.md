@@ -2,58 +2,77 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
 
-## Development server
+# Health Challenge Tracker
 
-To start a local development server, run:
+This is a Health Challenge Tracker application built with Angular 14+. The application allows users to track workout types and minutes, view the data in a bar chart, and manage users.
+
+## Features
+
+- Add, view, and delete users
+- Track workout types and minutes for each user
+- Display workout data in a bar chart
+- Responsive design using TailwindCSS
+
+## Technologies Used
+
+- Angular 14+
+- Chart.js
+- TailwindCSS
+
+
+### Prerequisites
+
+Ensure you have the following installed on your local machine:
+
+- Node.js (v14 or later)
+- npm (v6 or later)
+- Angular CLI (v14 or later)
+
+
+1. Clone the repository:
+
+   ```bash
+  git clone https://github.com/Adilmohd04/Health.git
+
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd Health
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+### Running the Application
+
+To start the development server and run the application locally:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The application will be available at `http://localhost:4200/`.
 
-## Code scaffolding
+### Running Unit Tests
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+To execute the unit tests for the application:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+This will run the unit tests and provide a report in the terminal.
+![test](https://github.com/user-attachments/assets/4614b249-83cd-4a07-ae37-46a088be8938)
 
-For end-to-end (e2e) testing, run:
+### Deployed Application
+You can access the deployed application using the following link:
 
-```bash
-ng e2e
-```
+[Health Challenge Tracker - Live](https://workout-manager.vercel.app/)
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
