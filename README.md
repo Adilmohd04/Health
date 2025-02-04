@@ -69,7 +69,7 @@ This will run the unit tests and provide a report in the terminal.
 ### Deployed Application
 You can access the deployed application using the following link:
 
-[Health Challenge Tracker - Live](https://workout-manager.vercel.app/)
+[Health  Tracker - Live](health-psi.vercel.app)
 
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
