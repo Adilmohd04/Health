@@ -84,7 +84,6 @@ export class ChartComponent implements OnChanges, OnInit {
         const workoutTypes = this.selectedUser.workouts.map(workout => workout.type);
         const workoutMinutes = this.selectedUser.workouts.map(workout => workout.minutes);
 
-        // Generate a color for each workout
         const colors = workoutMinutes.map(() => this.getRandomColor());
 
         this.chart.data.labels = workoutTypes;
@@ -129,9 +128,12 @@ export class ChartComponent implements OnChanges, OnInit {
     let shade = '#';
     for (let i = 1; i < 7; i += 2) {
       const component = parseInt(color.slice(i, i + 2), 16);
-      const darkerComponent = Math.max(0, component - 40).toString(16).padStart(2, '0');
-      shade += darkerComponent;
+      const darkerComponent = Math.max(0, component - 40);
+      shade += darkerComponent.toString(16).padStart(2, '0').toUpperCase();  
     }
+    
     return shade;
   }
+  
+  
 }

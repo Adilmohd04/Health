@@ -1,4 +1,4 @@
-import { Component,Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { trigger, transition, style, animate } from '@angular/animations';
@@ -17,13 +17,12 @@ import { WorkoutService, User } from '../../services/workout.service';
         animate('0.5s ease-in-out', style({ transform: 'translateX(0)', opacity: 1 }))
       ])
     ]),
-    
     trigger('slideInRight', [
       transition(':enter', [
-        style({ transform: 'translateX(50px)', opacity: 0}),
+        style({ transform: 'translateX(50px)', opacity: 0 }),
         animate('0.5s ease-in-out', style({ transform: 'translateX(0)', opacity: 1 }))
       ])
-    ])    
+    ])
   ]
 })
 export class FormComponent {
@@ -39,7 +38,7 @@ export class FormComponent {
       const newId = users.length + 1;
       const newUser = { id: newId, name: this.userName, workouts: [] };
       this.addUser.emit(newUser); 
-      this.userName = '';
+      this.userName = ''; 
     });
   }
 

@@ -28,7 +28,7 @@ export class ListComponent implements AfterViewInit {
   loading: boolean = true;
 
   constructor(private workoutService: WorkoutService, private library: FaIconLibrary) {
-    this.library.addIcons(faTrashAlt); // Adding trash icon to font-awesome library
+    this.library.addIcons(faTrashAlt); 
     this.workoutService.userData$.subscribe(data => {
       this.users = data;
       this.paginate();

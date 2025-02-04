@@ -39,22 +39,17 @@ export class WorkoutService {
       this.localStorageService.setItem('userData', this.defaultUserData);
       this.userDataSubject.next([...this.defaultUserData]);
     } else {
-      const defaultUserIds = new Set(this.defaultUserData.map(user => user.id));
-      const storedUserIds = new Set(storedData.map(user => user.id));
-
-      if (![...defaultUserIds].every(id => storedUserIds.has(id))) {
-        this.localStorageService.setItem('userData', this.defaultUserData);
-        this.userDataSubject.next([...this.defaultUserData]);
-      } else {
-        this.userDataSubject.next(storedData);
-      }
+      this.userDataSubject.next(storedData);
     }
   }
+  
 
   addUserWorkout(userName: string, workoutType: string, minutes: number): void {
     const currentData = this.userDataSubject.getValue();
-    let user = currentData.find(u => u.name === userName);
-
+    const normalizedUserName = userName.trim().toLowerCase();
+  
+    let user = currentData.find(u => u.name.trim().toLowerCase() === normalizedUserName);
+  
     if (user) {
       const existingWorkout = user.workouts.find(w => w.type === workoutType);
       if (existingWorkout) {
@@ -63,12 +58,14 @@ export class WorkoutService {
         user.workouts.push({ type: workoutType, minutes });
       }
     } else {
-      user = { id: currentData.length + 1, name: userName, workouts: [{ type: workoutType, minutes }] };
+      user = { id: currentData.length + 1, name: userName.trim(), workouts: [{ type: workoutType, minutes }] };
       currentData.push(user);
     }
-
+  
     this.userDataSubject.next([...currentData]);
+    this.localStorageService.setItem('userData', currentData); 
   }
+  
 
   deleteUser(userId: number): void {
     const currentData = this.userDataSubject.getValue().filter(user => user.id !== userId);
