@@ -1,8 +1,14 @@
 <div class="w-full flex justify-between items-center  top-0 bg-gray-100 shadow-md z-10 px-6 py-4">
   <img src="/fylelogo.svg" alt="Logo" class="logo">
   
-  <h1 class="health-title hidden lg:block">Health Tracker</h1>
-
+  <h1 class="hidden lg:block relative text-5xl lg:text-6xl font-extrabold text-gray-900 uppercase tracking-widest">
+    <span class="relative inline-block px-8 py-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 text-white rounded-lg shadow-xl transform transition-all duration-500 hover:scale-110 hover:shadow-2xl">
+      ✨ Health Tracker 🏋️‍♂️
+    </span>
+    <span class="absolute -inset-1 bg-gradient-to-r from-blue-400 to-pink-400 opacity-30 blur-xl rounded-lg"></span>
+  </h1>
+  
+  
   <nav class="menu flex items-center">
     <div class="menu-item" (click)="onSelectComponent('form')">
       <h6>Form</h6>

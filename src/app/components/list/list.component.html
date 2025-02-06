@@ -67,15 +67,17 @@
       </button>
 
       <div class="flex gap-3">
-        <button *ngFor="let page of getPaginationRange()" 
-                (click)="goToPage(page)" 
-                [class.bg-blue-500]="currentPage === page" 
-                [class.text-white]="currentPage === page" 
-                [class.bg-gray-300]="currentPage !== page"
-                class="p-2 rounded bg-pink-500 transition-all">
+        <button 
+          *ngFor="let page of getPaginationRange()" 
+          (click)="goToPage(page)" 
+          [class.bg-blue-500]="currentPage === page" 
+          [class.text-white]="currentPage === page" 
+          [class.bg-gray-300]="currentPage !== page"
+          class="px-4 py-2 rounded-lg transition-all duration-300 shadow-md hover:bg-blue-400 hover:text-white active:scale-95">
           {{ page }}
         </button>
       </div>
+      
 
       <button (click)="goToPage(currentPage + 1)" 
               [disabled]="currentPage === totalPages || totalPages === 0"

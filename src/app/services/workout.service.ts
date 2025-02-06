@@ -33,15 +33,10 @@ export class WorkoutService {
   }
 
   private initializeData(): void {
-    const storedData = this.localStorageService.getItem<User[]>('userData');
-    
-    if (!storedData || storedData.length === 0) {
-      this.localStorageService.setItem('userData', this.defaultUserData);
-      this.userDataSubject.next([...this.defaultUserData]);
-    } else {
-      this.userDataSubject.next(storedData);
-    }
+    this.localStorageService.setItem('userData', this.defaultUserData);
+    this.userDataSubject.next([...this.defaultUserData]);
   }
+  
   
 
   addUserWorkout(userName: string, workoutType: string, minutes: number): void {
