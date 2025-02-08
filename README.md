@@ -13,7 +13,7 @@ This is a Health Tracker application built with Angular 14+. The application all
 
 ## Technologies Used
 
-- Angular 14+
+- Angular
 - Chart.js
 - TailwindCSS
 
@@ -24,7 +24,7 @@ Ensure you have the following installed on your local machine:
 
 - Node.js (v14 or later)
 - npm (v6 or later)
-- Angular CLI (v14 or later)
+- Angular CLI 
 
 
 1. Clone the repository:
@@ -63,8 +63,8 @@ To execute the unit tests for the application:
 ng test
 ```
 
-This will run the unit tests and provide a report in the terminal.
-![test](https://github.com/user-attachments/assets/4614b249-83cd-4a07-ae37-46a088be8938)
+After running the unit tests and provide a report in the terminal.
+
 ### Component coverage report
 ![realcomponents](https://github.com/user-attachments/assets/552aa859-664c-42f0-a7cc-51bc193f8b50)
 
