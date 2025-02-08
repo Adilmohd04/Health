@@ -65,11 +65,15 @@ ng test
 
 This will run the unit tests and provide a report in the terminal.
 ![test](https://github.com/user-attachments/assets/4614b249-83cd-4a07-ae37-46a088be8938)
+### Component coverage report
+![realcomponents](https://github.com/user-attachments/assets/552aa859-664c-42f0-a7cc-51bc193f8b50)
+
+### Service coverage report
+![services](https://github.com/user-attachments/assets/e4214f4f-8659-435a-b24d-75faeb5e6ebb)
 
 ### Deployed Application
 You can access the deployed application using the following link:
 
-[Health  Tracker - Live](health-psi.vercel.app)
-
+[Health  Tracker - Live](https://health-psi.vercel.app/)
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
