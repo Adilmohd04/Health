@@ -2,7 +2,7 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
 
-This is a Health Tracker application built with Angular 14+. The application allows users to track workout types and minutes, view the data in a bar chart, and manage users.
+This is a Health Tracker application built with Angular. The application allows users to track workout types and minutes, view the data in a bar chart, and manage users.
 
 ## Features
 
